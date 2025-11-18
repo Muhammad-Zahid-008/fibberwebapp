@@ -1,7 +1,29 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { BsStars } from "react-icons/bs";
 
 export default function Header() {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handlePricingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    
+    if (pathname === "/") {
+      // If we're on the home page, scroll to pricing section
+      const pricingSection = document.getElementById("pricing");
+      if (pricingSection) {
+        pricingSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      // If we're on another page, navigate to home with hash
+      // The useEffect in the home page will handle the scroll
+      router.push("/#pricing");
+    }
+  };
+
   return (
     <header className="w-full px-6 py-6">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -20,9 +42,13 @@ export default function Header() {
           <Link href="/terms-and-conditions" className="text-gray-300 hover:text-white transition">
             Terms And Conditions
           </Link>
-          <Link href="/pricing" className="text-gray-300 hover:text-white transition">
+          <a 
+            href="/#pricing" 
+            onClick={handlePricingClick}
+            className="text-gray-300 hover:text-white transition"
+          >
             Pricing
-          </Link>
+          </a>
         </nav>
        </div>
 
@@ -30,7 +56,23 @@ export default function Header() {
         {/* Navigation */}
      
 
-        <button className="relative inline-flex items-center gap-3 border border-white rounded-full font-medium text-white">
+        <button 
+          onClick={() => {
+            const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+            const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream;
+            const isAndroid = /android/i.test(userAgent);
+            
+            if (isIOS) {
+              window.open('https://apps.apple.com/app/fibber', '_blank');
+            } else if (isAndroid) {
+              window.open('https://play.google.com/store/apps/details?id=com.fibber', '_blank');
+            } else {
+              // Default to Play Store for desktop/other devices
+              window.open('https://play.google.com/store/apps/details?id=com.fibber', '_blank');
+            }
+          }}
+          className="relative inline-flex items-center gap-3 border border-white rounded-full font-medium text-white cursor-pointer"
+        >
           <span className="relative z-10 flex items-center gap-3 rounded-full bg-gradient-to-bl hover:bg-gradient-to-tr from-[#00B8FF] to-[#C702EF] px-8 py-3 shadow-[0_4px_20px_rgba(59,130,246,0.4)] transition-all duration-500">
             <span className="text-base font-semibold">Get started</span>
             <BsStars />

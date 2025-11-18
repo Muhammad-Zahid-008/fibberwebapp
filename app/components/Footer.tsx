@@ -1,7 +1,29 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { FaFacebookF } from "react-icons/fa";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handlePricingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    
+    if (pathname === "/") {
+      // If we're on the home page, scroll to pricing section
+      const pricingSection = document.getElementById("pricing");
+      if (pricingSection) {
+        pricingSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      // If we're on another page, navigate to home with hash
+      // The useEffect in the home page will handle the scroll
+      router.push("/#pricing");
+    }
+  };
+
   return (
     <footer className="w-full py-6 md:py-12 px-4 md:px-6 bg-[#061353]">
       <div className="max-w-7xl mx-auto">
@@ -11,7 +33,7 @@ export default function Footer() {
           <div className="absolute bottom-9 left-1/2 -translate-x-1/2 translate-y-[40%] pointer-events-none z-0">
             <span className="text-[80px] sm:text-[120px] md:text-[220px] font-bold leading-none tracking-tight whitespace-nowrap bg-gradient-to-b from-gray-900/40 to-white/20 bg-clip-text text-transparent">
               LET&apos;S TALK
-            </span>
+            </span> 
           </div>
 
           {/* Main Content */}
@@ -95,12 +117,13 @@ export default function Footer() {
                     >
                       Terms & Conditions
                     </Link>
-                    <Link 
-                      href="/pricing" 
-                      className="block text-gray-300 hover:text-white transition-colors duration-200 text-[15px]"
+                    <a 
+                      href="/#pricing" 
+                      onClick={handlePricingClick}
+                      className="block text-gray-300 hover:text-white transition-colors duration-200 text-[15px] cursor-pointer"
                     >
                       Pricing
-                    </Link>
+                    </a>
                   </div>
                 </div>
 

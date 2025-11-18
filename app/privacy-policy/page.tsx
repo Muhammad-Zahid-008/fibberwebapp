@@ -4,16 +4,33 @@ import { MdOutlineMail } from "react-icons/md";
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-gradient-primary">
+    <div className="min-h-screen">
+      <div className="fixed top-0 right-0 pointer-events-none -z-10">
+        <svg width="1121" height="1072" viewBox="0 0 1121 1072" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g filter="url(#filter0_f_439_2727)">
+            <ellipse cx="807" cy="304" rx="527" ry="488" fill="url(#paint0_linear_439_2727)" fillOpacity="0.65" />
+          </g>
+          <defs>
+            <filter id="filter0_f_439_2727" x="0" y="-464" width="1614" height="1536" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
+              <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+              <feGaussianBlur stdDeviation="140" result="effect1_foregroundBlur_439_2727" />
+            </filter>
+            <linearGradient id="paint0_linear_439_2727" x1="1380" y1="-284.5" x2="585.73" y2="758.57" gradientUnits="userSpaceOnUse">
+              <stop stopColor="#00B8FF" />
+              <stop offset="0.471154" stopColor="#3555FF" />
+              <stop offset="0.942308" stopColor="#C702EF" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
       <Header />
       <main className=" py-0">
         <div className="px-[5%]">
-        <h1 className="text-4xl md:text-7xl pt-20 pb-20 text-center font-bold text-white mb-8">
-          Privacy Policy
-        </h1>
-    
-          </div>
-       
+          <h1 className="text-4xl md:text-7xl pt-20 pb-20 text-center font-bold text-white mb-8">
+            Privacy Policy
+          </h1>
+        </div>
         <div className="bg-white text-black px-[5%] py-10 my-0">
           <div className="max-w-5xl mx-auto space-y-8">
             {/* Introduction */}
@@ -201,7 +218,7 @@ export default function PrivacyPolicy() {
                 For any questions or privacy concerns, please contact us at:
               </p>
               <p className="text-xl font-semibold text-[#061353] flex items-center gap-2">
-              <MdOutlineMail className="text-[#081351]"/>
+                <MdOutlineMail className="text-[#081351]" />
                 <a href="mailto:privacy@fibberapp.com" className="text-[#3555FF] hover:text-[#081351] underline">
                   privacy@fibberapp.com
                 </a>

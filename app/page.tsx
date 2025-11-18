@@ -1,9 +1,25 @@
+"use client";
+
+import { useEffect } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { BsStars } from "react-icons/bs";
 import Marquee from "react-fast-marquee";
 
 export default function Home() {
+  useEffect(() => {
+    // Handle hash scroll on page load
+    const hash = window.location.hash;
+    if (hash === "#pricing") {
+      setTimeout(() => {
+        const pricingSection = document.getElementById("pricing");
+        if (pricingSection) {
+          pricingSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -34,7 +50,23 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
-              <button className="relative border border-white inline-flex items-center gap-3 rounded-full font-medium text-white">
+              <button 
+                onClick={() => {
+                  const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+                  const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream;
+                  const isAndroid = /android/i.test(userAgent);
+                  
+                  if (isIOS) {
+                    window.open('https://apps.apple.com/app/fibber', '_blank');
+                  } else if (isAndroid) {
+                    window.open('https://play.google.com/store/apps/details?id=com.fibber', '_blank');
+                  } else {
+                    // Default to Play Store for desktop/other devices
+                    window.open('https://play.google.com/store/apps/details?id=com.fibber', '_blank');
+                  }
+                }}
+                className="relative border border-white inline-flex items-center gap-3 rounded-full font-medium text-white cursor-pointer"
+              >
                 <span className="relative z-10 flex items-center gap-3 rounded-full bg-gradient-to-bl hover:bg-gradient-to-tr from-[#00B8FF] to-[#C702EF] px-8 py-3 shadow-[0_4px_20px_rgba(59,130,246,0.4)] transition-all duration-500">
                   <span className="text-base font-semibold">Get started</span>
                   <BsStars />
@@ -242,6 +274,18 @@ export default function Home() {
             </div>
           </div>
 
+        </section>
+
+        {/* Pricing Section */}
+        <section id="pricing" className="px-[5%] py-40 bg-white text-black">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#061353] mb-6">
+                Pricing
+              </h2>
+            
+            </div>
+          </div>
         </section>
       </main>
 

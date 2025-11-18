@@ -86,38 +86,38 @@ export default function Home() {
             </div>
 
             {/* Social Proof */}
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-12">
-              <div className="text-left">
-              <div className="text-5xl font-bold text-white mb-2">40,000+</div>
-              <div className="text-gray-300">People discovering deeper truths with AI.</div>
-            </div>
-            <div className="flex-1 overflow-hidden border-l-2 border-white">
-              <Marquee gradient={false} speed={50} className="py-2">
-                <div className="text-gray-400 font-semibold text-xl mx-8">afterpay</div>
-                <div className="text-gray-400 font-semibold text-xl mx-8">airbnb</div>
-                <div className="text-gray-400 font-semibold text-xl mx-8">Airtable</div>
-                <div className="text-gray-400 font-semibold text-xl mx-8">Airwallex</div>
-                <div className="text-gray-400 font-semibold text-xl mx-8">afterpay</div>
-                <div className="text-gray-400 font-semibold text-xl mx-8">airbnb</div>
-                <div className="text-gray-400 font-semibold text-xl mx-8">Airtable</div>
-                <div className="text-gray-400 font-semibold text-xl mx-8">Airwallex</div>
-                <div className="text-gray-400 font-semibold text-xl mx-8">afterpay</div>
-                <div className="text-gray-400 font-semibold text-xl mx-8">airbnb</div>
-                <div className="text-gray-400 font-semibold text-xl mx-8">Airtable</div>
-                <div className="text-gray-400 font-semibold text-xl mx-8">Airwallex</div>
-                <div className="text-gray-400 font-semibold text-xl mx-8">afterpay</div>
-                <div className="text-gray-400 font-semibold text-xl mx-8">airbnb</div>
-                <div className="text-gray-400 font-semibold text-xl mx-8">Airtable</div>
-                <div className="text-gray-400 font-semibold text-xl mx-8">Airwallex</div>
-              </Marquee>
-            </div>
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 md:pt-12">
+              <div className="text-center md:text-left w-full md:w-auto">
+                <div className="text-4xl md:text-5xl font-bold text-white mb-2">40,000+</div>
+                <div className="text-gray-300 text-sm md:text-base">People discovering deeper truths with AI.</div>
+              </div>
+              <div className="w-full md:flex-1 overflow-hidden md:border-l-2 md:border-white md:pl-8">
+                <Marquee gradient={false} speed={50} className="py-2">
+                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">afterpay</div>
+                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">airbnb</div>
+                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">Airtable</div>
+                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">Airwallex</div>
+                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">afterpay</div>
+                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">airbnb</div>
+                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">Airtable</div>
+                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">Airwallex</div>
+                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">afterpay</div>
+                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">airbnb</div>
+                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">Airtable</div>
+                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">Airwallex</div>
+                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">afterpay</div>
+                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">airbnb</div>
+                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">Airtable</div>
+                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">Airwallex</div>
+                </Marquee>
+              </div>
             </div>
           </div>
         </section>
 
 
         {/* AI-Precision Section */}
-        <section className="px-[5%] py-40 bg-white text-black relative">
+        <section className="px-[5%] py-20 lg:py-40 bg-white text-black relative">
           {/* Bottom Gradient Background */}
           <div className="absolute bottom-0 left-0 right-0 h-[400px] bg-gradient-to-t from-[#081351]/30 via-[#081351]/10 t/20-transparent pointer-events-none"></div>
           
@@ -130,7 +130,7 @@ export default function Home() {
                 </span>
               </h2>
             </div>
-            <div className="flex items-start pl-20">
+            <div className="flex items-start lg:pl-20">
               <p className="text-[#061353] text-lg">
                 Fibber transforms ordinary conversations into powerful insights using advanced
                 AI speech analysis. Detect tone, emotion, and authenticity in every voice
@@ -140,7 +140,7 @@ export default function Home() {
           </div>
 
           {/* Feature Blocks */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-40 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 lg:mt-40 relative z-10">
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl">
 
               <h3 className="text-2xl font-semibold text-[#061353] mb-3">Record & Analyze Speech</h3>
@@ -187,9 +187,9 @@ export default function Home() {
           </div>
 
           {/* Feature Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Card 1 — spans 6 columns */}
-            <div className="md:col-span-6 relative overflow-hidden bg-white backdrop-blur-xl border border-white/10 rounded-3xl pl-10 text-black">
+            <div className="lg:col-span-6 relative overflow-hidden bg-white backdrop-blur-xl border border-white/10 rounded-3xl pl-10 text-black">
               {/* Background Gradient Glow */}
               <div className="absolute bottom-0 left-0 pointer-events-none overflow-visible">
                 <svg
@@ -246,7 +246,7 @@ export default function Home() {
 
 
             {/* Card 2 — spans 3 columns */}
-            <div className="md:col-span-3 bg-[linear-gradient(50deg,#C702EF_0%,#3555FF_50%,#00B8FF_100%)] backdrop-blur-sm rounded-2xl p-8 flex flex-col justify-between">
+            <div className="lg:col-span-3 bg-[linear-gradient(50deg,#C702EF_0%,#3555FF_50%,#00B8FF_100%)] backdrop-blur-sm rounded-2xl p-8 flex flex-col justify-between">
               <div className="flex justify-between items-center flex-col w-full h-full">
                 <h3 className="text-4xl font-semibold text-white mb-3">98% Emotion Detection Accuracy</h3>
                 <p className="text-white text-xl">
@@ -257,7 +257,7 @@ export default function Home() {
             </div>
 
 
-            <div className="md:col-span-3 bg-[linear-gradient(50deg,#C702EF_0%,#3555FF_50%,#00B8FF_100%)] backdrop-blur-sm rounded-2xl p-8 flex flex-col justify-between">
+            <div className="lg:col-span-3 bg-[linear-gradient(50deg,#C702EF_0%,#3555FF_50%,#00B8FF_100%)] backdrop-blur-sm rounded-2xl p-8 flex flex-col justify-between">
               <div className="flex justify-between items-center flex-col w-full h-full">
                 <h3 className="text-4xl font-semibold text-white mb-3">Instant AI Reports in Seconds</h3>
                 <div>

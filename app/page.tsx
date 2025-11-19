@@ -50,12 +50,12 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
-              <button 
+              <button
                 onClick={() => {
                   const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
                   const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream;
                   const isAndroid = /android/i.test(userAgent);
-                  
+
                   if (isIOS) {
                     window.open('https://apps.apple.com/app/fibber', '_blank');
                   } else if (isAndroid) {
@@ -120,13 +120,13 @@ export default function Home() {
         <section className="px-[5%] py-20 lg:py-40 bg-white text-black relative">
           {/* Bottom Gradient Background */}
           <div className="absolute bottom-0 left-0 right-0 h-[400px] bg-gradient-to-t from-[#081351]/30 via-[#081351]/10 t/20-transparent pointer-events-none"></div>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12 relative z-10">
             <div>
               <h2 className="text-4xl md:text-5xl lg:text-7xl font-semibold text-[#061353] leading-extended">
-                Designed to <br/> Decode Speech <br/> With
+                Designed to <br /> Decode Speech <br /> With
                 <span className="bg-gradient-to-r from-[#3555FF] to-[#C702EF] bg-clip-text text-transparent">
-               {" "}   AI-Precision
+                  {" "}   AI-Precision
                 </span>
               </h2>
             </div>
@@ -277,19 +277,287 @@ export default function Home() {
         </section>
 
         {/* Pricing Section */}
-        <section id="pricing" className="px-[5%] py-40 bg-white text-black">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#061353] mb-6">
-                Pricing
+        <section id="pricing" className="px-[5%] py-20 bg-white text-black">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-12 relative z-10">
+            <div>
+              <h2 className="text-4xl md:text-5xl lg:text-7xl font-semibold text-[#061353] leading-extended">
+                Your Fibber <br />
+                <span className="bg-gradient-to-r from-[#3555FF] to-[#C702EF] bg-clip-text text-transparent">
+                  {" "}   Membership
+                </span>
               </h2>
-            
             </div>
+            <div>
+            </div>
+            <div className="flex items-start lg:pl-20">
+              <p className="text-[#061353] text-lg">
+                Unlock the full power of Truth Scores, Cognitive Load Mapping, and Voice Stress Analysis – Choose the precise level of deception detection tailored to your requirements.
+              </p>
+            </div>
+          </div>
+
+          {/* Feature Blocks */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 lg:mt-40 relative z-10">
+            <div
+              className="
+    group 
+    p-6 
+    border border-white/10 
+    rounded-3xl 
+    shadow-sm 
+    w-full
+    bg-[#F8F7FF]
+    transition duration-300
+
+    hover:bg-gradient-to-l 
+    hover:from-[#5A4FF3]
+    hover:to-[#9A4DFF]
+    hover:text-white
+  "
+            >
+
+              {/* Title */}
+              <h3 className="text-4xl font-semibold text-[#061353] mb-2 group-hover:text-white">
+                Basic
+              </h3>
+
+              {/* Price Row */}
+              <div className="flex items-end gap-2 mb-1">
+                <span className="text-4xl font-bold bg-gradient-to-r from-[#5A4FF3] to-[#008CFF] bg-clip-text text-transparent
+      group-hover:text-white group-hover:bg-none">
+                  $4.99
+                </span>
+
+                <span className="bg-[#F2F2F2] px-2 py-1 text-xs text-gray-600 rounded-md group-hover:bg-white/20 group-hover:text-white">
+                  -15%
+                </span>
+              </div>
+
+              <p className="text-black text-sm mb-4 group-hover:text-white">
+                per user/month, billed monthly
+              </p>
+
+              {/* Tick + Usage */}
+              <div className="flex items-center gap-2 mb-6">
+                <div className="w-5 h-5 rounded-md bg-[#5A4FF3] flex items-center justify-center group-hover:bg-white">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 10l3 3 7-7" stroke="#fff" strokeWidth="2" strokeLinecap="round"
+                      className="group-hover:stroke-[#5A4FF3]" />
+                  </svg>
+                </div>
+                <span className="text-gray-700 group-hover:text-white">25 uses monthly</span>
+              </div>
+
+              <button
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-full text-white text-lg font-semibold
+    bg-gradient-to-r from-[#C857F4] via-[#8C5BFE] to-[#0EA5EA] shadow-md transition duration-300
+    group-hover:bg-none group-hover:bg-white group-hover:text-[#B758F3]"
+              >
+                Get started <BsStars />
+              </button>
+
+            </div>
+
+
+
+
+            <div className="
+    group 
+    p-6 
+    border border-white/10 
+    rounded-3xl 
+    shadow-sm 
+    w-full
+    bg-[#F8F7FF]
+    transition duration-300
+
+    hover:bg-gradient-to-l 
+    hover:from-[#5A4FF3]
+    hover:to-[#9A4DFF]
+    hover:text-white
+  "
+            >
+
+              {/* Title */}
+              <h3 className="text-4xl font-semibold text-[#061353] mb-2 group-hover:text-white">
+                Plus
+              </h3>
+
+              {/* Price Row */}
+              <div className="flex items-end gap-2 mb-1">
+                <span className="text-4xl font-bold bg-gradient-to-r from-[#5A4FF3] to-[#008CFF] bg-clip-text text-transparent
+      group-hover:text-white group-hover:bg-none">
+                  $9.99
+                </span>
+
+                <span className="bg-[#F2F2F2] px-2 py-1 text-xs text-gray-600 rounded-md group-hover:bg-white/20 group-hover:text-white">
+                  -15%
+                </span>
+              </div>
+
+              <p className="text-black text-sm mb-4 group-hover:text-white">
+                per user/month, billed monthly
+              </p>
+
+              {/* Tick + Usage */}
+              <div className="flex items-center gap-2 mb-6">
+                <div className="w-5 h-5 rounded-md bg-[#5A4FF3] flex items-center justify-center group-hover:bg-white">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 10l3 3 7-7" stroke="#fff" strokeWidth="2" strokeLinecap="round"
+                      className="group-hover:stroke-[#5A4FF3]" />
+                  </svg>
+                </div>
+                <span className="text-gray-700 group-hover:text-white">50 uses monthly</span>
+              </div>
+
+              <button
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-full text-white text-lg font-semibold
+    bg-gradient-to-r from-[#C857F4] via-[#8C5BFE] to-[#0EA5EA] shadow-md transition duration-300
+    group-hover:bg-none group-hover:bg-white group-hover:text-[#B758F3]"
+              >
+                Get started <BsStars />
+              </button>
+
+            </div>
+
+            <div className="
+    group 
+    p-6 
+    border border-white/10 
+    rounded-3xl 
+    shadow-sm 
+    w-full
+    bg-[#F8F7FF]
+    transition duration-300
+
+    hover:bg-gradient-to-l 
+    hover:from-[#5A4FF3]
+    hover:to-[#9A4DFF]
+    hover:text-white
+  "
+            >
+
+              {/* Title */}
+              <h3 className="text-4xl font-semibold text-[#061353] mb-2 group-hover:text-white">
+                Premium
+              </h3>
+
+              {/* Price Row */}
+              <div className="flex items-end gap-2 mb-1">
+                <span className="text-4xl font-bold bg-gradient-to-r from-[#5A4FF3] to-[#008CFF] bg-clip-text text-transparent
+      group-hover:text-white group-hover:bg-none">
+                  $19.99
+                </span>
+
+                <span className="bg-[#F2F2F2] px-2 py-1 text-xs text-gray-600 rounded-md group-hover:bg-white/20 group-hover:text-white">
+                  -15%
+                </span>
+              </div>
+
+              <p className="text-black text-sm mb-4 group-hover:text-white">
+                per user/month, billed monthly
+              </p>
+
+              {/* Tick + Usage */}
+              <div className="flex items-center gap-2 mb-6">
+                <div className="w-5 h-5 rounded-md bg-[#5A4FF3] flex items-center justify-center group-hover:bg-white">
+                  <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 10l3 3 7-7" stroke="#fff" strokeWidth="2" strokeLinecap="round"
+                      className="group-hover:stroke-[#5A4FF3]" />
+                  </svg>
+                </div>
+                <span className="text-gray-700 group-hover:text-white">Unlimited uses</span>
+              </div>
+
+              <button
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-full text-white text-lg font-semibold
+    bg-gradient-to-r from-[#C857F4] via-[#8C5BFE] to-[#0EA5EA] shadow-md transition duration-300
+    group-hover:bg-none group-hover:bg-white group-hover:text-[#B758F3]"
+              >
+                Get started <BsStars />
+              </button>
+            </div>
+
           </div>
         </section>
       </main>
+      <div className="bg-[#081351] py-6 md:py-12">
+        <div className="px-[10%]">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-12 relative z-10">
+            <div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-extended">
+                Download the <br />
+                <span className="text-white">
+                  {" "}   Fibber AI App
+                </span>
+              </h2>
+              <br />
+              <p>
+                Start analyzing speech and detecting deception instantly. Available on all major mobile platforms.
+              </p>
+              <div>
 
-      <Footer />
+                <div className="flex flex-col sm:flex-row items-center gap-4 my-10">
+                  <button
+                    onClick={() => {
+                      const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+                      const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream;
+                      const isAndroid = /android/i.test(userAgent);
+
+                      if (isIOS) {
+                        window.open('https://apps.apple.com/app/fibber', '_blank');
+                      } else if (isAndroid) {
+                        window.open('https://play.google.com/store/apps/details?id=com.fibber', '_blank');
+                      } else {
+                        // Default to Play Store for desktop/other devices
+                        window.open('https://play.google.com/store/apps/details?id=com.fibber', '_blank');
+                      }
+                    }}
+                    className="relative border border-white inline-flex items-center gap-3 rounded-full font-medium text-white cursor-pointer"
+                  >
+                    <span className="relative z-10 flex items-center gap-3 rounded-full bg-gradient-to-bl hover:bg-gradient-to-tr from-[#00B8FF] to-[#C702EF] px-8 py-3 shadow-[0_4px_20px_rgba(59,130,246,0.4)] transition-all duration-500">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.1803 15.266L19.1254 14.1854C20.8399 13.2329 20.8399 10.7671 19.1254 9.81459L17.1802 8.73394L16.2071 9.70708L16.1919 9.72196L13.8148 12L16.1919 14.278L16.2071 14.2929L17.1803 15.266ZM12.3696 13.3851L14.8004 15.7146L15.362 16.2762L5.71411 21.6361C5.02468 22.0191 4.26996 22.0374 3.62199 21.7922L4.19957 21.2146L12.3696 13.3851ZM12.3696 10.6149L14.8004 8.28535L15.362 7.72378L5.71411 2.36386C5.02469 1.98085 4.26997 1.96256 3.622 2.20776L4.19957 2.78533L12.3696 10.6149ZM2.1841 3.59829L2.79289 4.20708L2.80809 4.22196L10.9243 12L2.80809 19.778L2.79289 19.7929L2.1841 20.4017C2.06606 20.1128 2 19.7931 2 19.4507V4.54925C2 4.20688 2.06606 3.88713 2.1841 3.59829Z" fill="white" />
+                      </svg>
+                      <span className="text-base font-semibold">Playstore</span>
+
+                    </span>
+                  </button>
+
+                  <button className="relative border border-white inline-flex items-center gap-3 rounded-full font-medium text-white overflow-hidden">
+                    {/* Gradient Border Layer */}
+                    <span className="absolute inset-0 rounded-full p-[1.5px] bg-gradient-to-r from-white/30 to-transparent"></span>
+
+                    {/* Inner Transparent Area */}
+                    <span className="relative z-10 flex items-center gap-3 rounded-full bg-transparent px-10 py-3 transition-all duration-500 hover:bg-white/10">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.26721 13.7531L14.7328 13.7484L12 9.32812L9.26721 13.7531Z" fill="white" />
+                        <path d="M12 1.03125C5.94375 1.03125 1.03125 5.94375 1.03125 12C1.03125 18.0562 5.94375 22.9688 12 22.9688C18.0562 22.9688 22.9688 18.0562 22.9688 12C22.9688 5.94375 18.0562 1.03125 12 1.03125ZM18.4547 17.0953L17.2547 17.8359L15.6 15.1547L8.39531 15.1641L6.74531 17.8359L5.54531 17.0953L6.73594 15.1641H4.84688V13.7531L7.60781 13.7484L11.1703 7.98281L9.38437 5.09062L10.5844 4.35L12 6.64219L13.4156 4.35L14.6156 5.09062L12.8297 7.98281L16.3875 13.7391L19.1531 13.7344V15.1453H17.2547L18.4547 17.0953Z" fill="white" />
+                      </svg>
+                      <span className="text-base font-semibold">Appstore</span>
+                    </span>
+                  </button>
+
+                </div>
+
+
+
+              </div>
+            </div>
+            <div>
+            </div>
+            <div className="relative flex justify-center md:justify-end">
+              <img
+                src="/assests/liar-phone.svg"
+                alt="Featured analysis preview"
+                className="w-72 md:w-80 object-contain translate-y-2"
+              />
+            </div>
+          </div>
+
+        </div>
+        <Footer />
+      </div>
     </div>
   );
 }

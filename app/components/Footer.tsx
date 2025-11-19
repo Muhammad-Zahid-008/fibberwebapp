@@ -25,7 +25,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full py-6 md:py-12 px-4 md:px-6 bg-[#061353]">
+    <footer className="w-full px-4 md:px-6 bg-[#061353]">
       <div className="max-w-7xl mx-auto">
         {/* Footer Container with Border */}
         <div className="relative min-h-[28rem] md:min-h-[34rem] rounded-3xl border border-blue-400/30 bg-gradient-to-b from-[#0a0d4f] via-[#1d1271] to-[#472986] overflow-hidden">

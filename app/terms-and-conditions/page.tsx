@@ -11,14 +11,14 @@ export default function TermsAndConditions() {
         </h1>
         <div className="prose prose-invert max-w-none">
           <p className="text-gray-300 text-lg mb-6">
-            Terms and Conditions content - Coming Soon
+            Terms and Conditions - Coming Soon
           </p>
-          <p className="text-gray-400">
-            This page will contain the terms and conditions for using Fibber services.
-          </p>
+      
         </div>
       </main>
+      <div className="py-10 md:py-10 bg-[#081351]">
       <Footer />
+    </div>
     </div>
   );
 }

@@ -227,7 +227,10 @@ export default function PrivacyPolicy() {
           </div>
         </div>
       </main>
+      <div className="py-10 md:py-10 bg-[#081351]">
+
       <Footer />
+      </div>
     </div>
   );
 }

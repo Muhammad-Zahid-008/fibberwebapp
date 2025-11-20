@@ -5,8 +5,16 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { BsStars } from "react-icons/bs";
 import Marquee from "react-fast-marquee";
+import { usePathname, useRouter } from "next/navigation";
+
 
 export default function Home() {
+
+  const pathname = usePathname();
+  const router = useRouter();
+
+
+
   useEffect(() => {
     // Handle hash scroll on page load
     const hash = window.location.hash;
@@ -19,6 +27,23 @@ export default function Home() {
       }, 100);
     }
   }, []);
+
+
+  const handleDownload = (e: any) => {
+    e.preventDefault();
+
+    if (pathname === "/") {
+      // If we're on the home page, scroll to pricing section
+      const pricingSection = document.getElementById("download");
+      if (pricingSection) {
+        pricingSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      // If we're on another page, navigate to home with hash
+      // The useEffect in the home page will handle the scroll
+      router.push("/#download");
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -51,24 +76,11 @@ export default function Home() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
               <button
-                onClick={() => {
-                  const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
-                  const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream;
-                  const isAndroid = /android/i.test(userAgent);
-
-                  if (isIOS) {
-                    window.open('https://apps.apple.com/app/fibber', '_blank');
-                  } else if (isAndroid) {
-                    window.open('https://play.google.com/store/apps/details?id=com.fibber', '_blank');
-                  } else {
-                    // Default to Play Store for desktop/other devices
-                    window.open('https://play.google.com/store/apps/details?id=com.fibber', '_blank');
-                  }
-                }}
+                onClick={handleDownload}
                 className="relative border border-white inline-flex items-center gap-3 rounded-full font-medium text-white cursor-pointer"
               >
                 <span className="relative z-10 flex items-center gap-3 rounded-full bg-gradient-to-bl hover:bg-gradient-to-tr from-[#00B8FF] to-[#C702EF] px-8 py-3 shadow-[0_4px_20px_rgba(59,130,246,0.4)] transition-all duration-500">
-                  <span className="text-base font-semibold">Get started</span>
+                  <span className="text-base font-semibold">Download Now</span>
                   <BsStars />
                 </span>
               </button>
@@ -93,22 +105,37 @@ export default function Home() {
               </div>
               <div className="w-full md:flex-1 overflow-hidden md:border-l-2 md:border-white md:pl-8">
                 <Marquee gradient={false} speed={50} className="py-2">
-                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">afterpay</div>
-                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">airbnb</div>
-                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">Airtable</div>
-                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">Airwallex</div>
-                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">afterpay</div>
-                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">airbnb</div>
-                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">Airtable</div>
-                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">Airwallex</div>
-                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">afterpay</div>
-                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">airbnb</div>
-                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">Airtable</div>
-                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">Airwallex</div>
-                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">afterpay</div>
-                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">airbnb</div>
-                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">Airtable</div>
-                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">Airwallex</div>
+                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
+                    <img src='/assests/1.png' />
+                  </div>
+                     <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
+                    <img src='/assests/2.png' />
+                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
+                    <img src='/assests/3.png' />
+                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
+                    <img src='/assests/4.png' />
+                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
+                    <img src='/assests/5.png' />
+                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
+                    <img src='/assests/6.png' />
+                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
+                    <img src='/assests/7.png' />
+                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
+                    <img src='/assests/8.png' />
+                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
+                    <img src='/assests/9.png' />
+                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
+                    <img src='/assests/10.png' />
+                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
+                    <img src='/assests/11.png' />
+                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
+                    <img src='/assests/12.png' />
+                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
+                    <img src='/assests/13.png' />
+                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
+                    <img src='/assests/14.png' />
+                  </div>
+
                 </Marquee>
               </div>
             </div>
@@ -481,9 +508,9 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <div className="bg-[#081351] py-6 md:py-12">
+      <div id="download" className="bg-[#081351] py-6 md:py-12">
         <div className="px-[10%]">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 relative z-10">
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-extended">
                 Download the <br />
@@ -500,18 +527,8 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row items-center gap-4 my-10">
                   <button
                     onClick={() => {
-                      const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
-                      const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream;
-                      const isAndroid = /android/i.test(userAgent);
+                      window.open('https://play.google.com/store/apps/details?id=com.fibber', '_blank');
 
-                      if (isIOS) {
-                        window.open('https://apps.apple.com/app/fibber', '_blank');
-                      } else if (isAndroid) {
-                        window.open('https://play.google.com/store/apps/details?id=com.fibber', '_blank');
-                      } else {
-                        // Default to Play Store for desktop/other devices
-                        window.open('https://play.google.com/store/apps/details?id=com.fibber', '_blank');
-                      }
                     }}
                     className="relative border border-white inline-flex items-center gap-3 rounded-full font-medium text-white cursor-pointer"
                   >
@@ -524,7 +541,14 @@ export default function Home() {
                     </span>
                   </button>
 
-                  <button className="relative border border-white inline-flex items-center gap-3 rounded-full font-medium text-white overflow-hidden">
+                  <button
+                    onClick={() => {
+
+
+                      window.open('https://apps.apple.com/app/fibber', '_blank');
+
+                    }}
+                    className="relative border border-white inline-flex items-center gap-3 rounded-full font-medium text-white overflow-hidden">
                     {/* Gradient Border Layer */}
                     <span className="absolute inset-0 rounded-full p-[1.5px] bg-gradient-to-r from-white/30 to-transparent"></span>
 
@@ -550,7 +574,7 @@ export default function Home() {
               <img
                 src="/assests/liar-phone.svg"
                 alt="Featured analysis preview"
-                className="w-72 md:w-80 object-contain translate-y-2"
+                className="w-72 md:w-80 object-contain"
               />
             </div>
           </div>

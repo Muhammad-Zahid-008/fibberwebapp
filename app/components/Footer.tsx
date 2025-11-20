@@ -61,7 +61,7 @@ export default function Footer() {
                 {/* Copyright */}
                 <div className="mt-5 hidden md:block">
                   <p className="text-gray-400 text-sm">
-                    © 2025 Untitled UI. All rights reserved.
+                    © 2025 Fibber. All rights reserved.
                   </p>
                 </div>
               </div>

@@ -527,7 +527,7 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row items-center gap-4 my-10">
                   <button
                     onClick={() => {
-                      window.open('https://play.google.com/store/apps/details?id=com.fibber', '_blank');
+                      window.open('https://play.google.com/store/apps/details?id=com.fibberai.app', '_blank');
 
                     }}
                     className="relative border border-white inline-flex items-center gap-3 rounded-full font-medium text-white cursor-pointer"

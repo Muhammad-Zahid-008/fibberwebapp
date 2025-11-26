@@ -8,7 +8,7 @@ export default function Footer() {
   const pathname = usePathname();
   const router = useRouter();
 
-  const handlePricingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handlePricingClick = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     
     if (pathname === "/") {
@@ -53,7 +53,7 @@ export default function Footer() {
                 <div className="space-y-3 mb-0 md:mb-20">
                   <h4 className="text-white font-medium text-sm">Contact</h4>
                   <div className="space-y-2">
-                    <p className="text-white text-sm">fibber@gmail.com</p>
+                    <p className="text-white text-sm">craig@originalfibber.com</p>
                     <p className="text-white text-sm">+12345678900</p>
                   </div>
                 </div>
@@ -111,19 +111,14 @@ export default function Footer() {
                     >
                       Privacy Policy
                     </Link>
-                    <Link 
-                      href="/terms-and-conditions" 
-                      className="block text-gray-300 hover:text-white transition-colors duration-200 text-[15px]"
-                    >
-                      Terms & Conditions
-                    </Link>
-                    <a 
-                      href="/#pricing" 
+                  
+                    <button 
+                      type="button"
                       onClick={handlePricingClick}
-                      className="block text-gray-300 hover:text-white transition-colors duration-200 text-[15px] cursor-pointer"
+                      className="block text-gray-300 hover:text-white transition-colors duration-200 text-[15px] cursor-pointer text-left w-full bg-transparent"
                     >
                       Pricing
-                    </a>
+                    </button>
                   </div>
                 </div>
 

@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { BsStars } from "react-icons/bs";
 import Marquee from "react-fast-marquee";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 
 
@@ -17,15 +18,15 @@ export default function Home() {
 
   useEffect(() => {
     // Handle hash scroll on page load
-    const hash = window.location.hash;
-    if (hash === "#pricing") {
-      setTimeout(() => {
-        const pricingSection = document.getElementById("pricing");
-        if (pricingSection) {
-          pricingSection.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }, 100);
-    }
+    const hashValue = window.location.hash?.replace("#", "");
+    if (!hashValue) return;
+
+    setTimeout(() => {
+      const targetSection = document.getElementById(hashValue);
+      if (targetSection) {
+        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
   }, []);
 
 
@@ -45,13 +46,18 @@ export default function Home() {
     }
   };
 
+  const marqueeLogos = Array.from({ length: 14 }, (_, idx) => ({
+    src: `/assests/${idx + 1}.png`,
+    alt: `Partner logo ${idx + 1}`,
+  }));
+
   return (
     <div className="min-h-screen">
       <Header />
 
       <main className="w-full">
         {/* Hero Section */}
-        <section className=" ">
+        <section id="home" className=" ">
           <div className="px-[5%] py-20 text-center">
 
 
@@ -85,15 +91,15 @@ export default function Home() {
                 </span>
               </button>
 
-              <button className="relative border border-white inline-flex items-center gap-3 rounded-full font-medium text-white overflow-hidden">
-                {/* Gradient Border Layer */}
+              {/* <button className="relative border border-white inline-flex items-center gap-3 rounded-full font-medium text-white overflow-hidden">
+            
                 <span className="absolute inset-0 rounded-full p-[1.5px] bg-gradient-to-r from-white/30 to-transparent"></span>
 
-                {/* Inner Transparent Area */}
+              
                 <span className="relative z-10 flex items-center gap-3 rounded-full bg-transparent px-10 py-3 transition-all duration-500 hover:bg-white/10">
                   <span className="text-base font-semibold">Learn more</span>
                 </span>
-              </button>
+              </button> */}
 
             </div>
 
@@ -105,37 +111,17 @@ export default function Home() {
               </div>
               <div className="w-full md:flex-1 overflow-hidden md:border-l-2 md:border-white md:pl-8">
                 <Marquee gradient={false} speed={50} className="py-2">
-                  <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
-                    <img src='/assests/1.png' />
-                  </div>
-                     <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
-                    <img src='/assests/2.png' />
-                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
-                    <img src='/assests/3.png' />
-                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
-                    <img src='/assests/4.png' />
-                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
-                    <img src='/assests/5.png' />
-                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
-                    <img src='/assests/6.png' />
-                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
-                    <img src='/assests/7.png' />
-                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
-                    <img src='/assests/8.png' />
-                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
-                    <img src='/assests/9.png' />
-                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
-                    <img src='/assests/10.png' />
-                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
-                    <img src='/assests/11.png' />
-                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
-                    <img src='/assests/12.png' />
-                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
-                    <img src='/assests/13.png' />
-                  </div>   <div className="text-gray-400 font-semibold text-sm md:text-xl mx-4 md:mx-8">
-                    <img src='/assests/14.png' />
-                  </div>
-
+                  {marqueeLogos.map((logo) => (
+                    <div key={logo.src} className="mx-4 md:mx-8">
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        width={120}
+                        height={40}
+                        className="h-8 w-auto object-contain opacity-80"
+                      />
+                    </div>
+                  ))}
                 </Marquee>
               </div>
             </div>
@@ -144,7 +130,7 @@ export default function Home() {
 
 
         {/* AI-Precision Section */}
-        <section className="px-[5%] py-20 lg:py-40 bg-white text-black relative">
+        <section id="how-it-works" className="px-[5%] py-20 lg:py-40 bg-white text-black relative">
           {/* Bottom Gradient Background */}
           <div className="absolute bottom-0 left-0 right-0 h-[400px] bg-gradient-to-t from-[#081351]/30 via-[#081351]/10 t/20-transparent pointer-events-none"></div>
 
@@ -198,7 +184,7 @@ export default function Home() {
         </section>
 
         {/* What Makes Fibber Unique Section */}
-        <section className="px-[5%] lg:px-[5%] py-20 bg-[#061353]">
+        <section id="features" className="px-[5%] lg:px-[5%] py-20 bg-[#061353]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight">
@@ -262,10 +248,13 @@ export default function Home() {
 
                 {/* Right side — Image */}
                 <div className="relative flex justify-center md:justify-end">
-                  <img
+                  <Image
                     src="/assests/phone.svg"
-                    alt="Featured analysis preview"
+                    alt="Fibber mobile app preview"
+                    width={320}
+                    height={640}
                     className="w-72 md:w-80 object-contain translate-y-2"
+                    priority
                   />
                 </div>
               </div>
@@ -507,6 +496,86 @@ export default function Home() {
 
           </div>
         </section>
+
+        {/* Testimonials Section */}
+        <section id="testimonials" className="px-[5%] py-20 bg-[#081351] text-white">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+          
+            <h2 className="text-4xl md:text-5xl font-semibold mb-4">Testimonials (Demo)</h2>
+          
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                quote:
+                  "We reduced interview time by 30% because Fibber highlights which responses deserve a deeper follow-up.",
+                name: "Sarah Kim",
+                title: "Head of People, Arclight Labs",
+              },
+              {
+                quote:
+                  "Our compliance team finally has a repeatable framework to identify deception without bias or guesswork.",
+                name: "Marcus White",
+                title: "Risk Lead, Lendly",
+              },
+              {
+                quote: "I run every key sales call through Fibber to understand tone shifts before walking into negotiations.",
+                name: "Ana Rodriguez",
+                title: "Enterprise AE, Orbiq",
+              },
+            ].map((item) => (
+              <div
+                key={item.name}
+                className="p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md flex flex-col gap-6 h-full"
+              >
+                <p className="text-lg leading-relaxed text-white/90">“{item.quote}”</p>
+                <div>
+                  <p className="font-semibold text-white">{item.name}</p>
+                  <p className="text-sm text-white/60">{item.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* FAQs Section */}
+        <section id="faqs" className="px-[5%] py-20 bg-white text-[#061353]">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-semibold">FAQs</h2>
+        
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-4">
+            {[
+              {
+                question: "What does this app do?",
+                answer:
+                  "Record any conversation and Fibber will analyze the audio for voice patterns, speech metrics, and sentiment cues then deliver an easy-to-read insight report.",
+              },
+              {
+                question: "How do I record my audio?",
+                answer:
+                  "Tap Record inside the app, speak clearly, and tap Stop when you’re done. The clip uploads automatically for analysis no extra steps required.",
+              },
+              {
+                question: "How long does analysis take?",
+                answer:
+                  "Most files process instantly. Longer conversations (10+ minutes) may take a few extra seconds while we map tone, stress, and sentiment.",
+              },
+              {
+                question: "What types of results will I see?",
+                answer:
+                  "Fibber returns visual dashboards and summaries that highlight tone shifts, stress levels, sentiment, clarity, and other speech metrics so you know exactly what to focus on.",
+              },
+            ].map((faq) => (
+              <div key={faq.question} className="border border-[#E2E8F0] rounded-2xl p-6 shadow-sm">
+                <p className="font-semibold text-lg mb-2">{faq.question}</p>
+                <p className="text-gray-600">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
       <div id="download" className="bg-[#081351] py-6 md:py-12">
         <div className="px-[10%]">
@@ -534,7 +603,7 @@ export default function Home() {
                   >
                     <span className="relative z-10 flex items-center gap-3 rounded-full bg-gradient-to-bl hover:bg-gradient-to-tr from-[#00B8FF] to-[#C702EF] px-8 py-3 shadow-[0_4px_20px_rgba(59,130,246,0.4)] transition-all duration-500">
                       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M17.1803 15.266L19.1254 14.1854C20.8399 13.2329 20.8399 10.7671 19.1254 9.81459L17.1802 8.73394L16.2071 9.70708L16.1919 9.72196L13.8148 12L16.1919 14.278L16.2071 14.2929L17.1803 15.266ZM12.3696 13.3851L14.8004 15.7146L15.362 16.2762L5.71411 21.6361C5.02468 22.0191 4.26996 22.0374 3.62199 21.7922L4.19957 21.2146L12.3696 13.3851ZM12.3696 10.6149L14.8004 8.28535L15.362 7.72378L5.71411 2.36386C5.02469 1.98085 4.26997 1.96256 3.622 2.20776L4.19957 2.78533L12.3696 10.6149ZM2.1841 3.59829L2.79289 4.20708L2.80809 4.22196L10.9243 12L2.80809 19.778L2.79289 19.7929L2.1841 20.4017C2.06606 20.1128 2 19.7931 2 19.4507V4.54925C2 4.20688 2.06606 3.88713 2.1841 3.59829Z" fill="white" />
+                        <path  clipRule="evenodd" d="M17.1803 15.266L19.1254 14.1854C20.8399 13.2329 20.8399 10.7671 19.1254 9.81459L17.1802 8.73394L16.2071 9.70708L16.1919 9.72196L13.8148 12L16.1919 14.278L16.2071 14.2929L17.1803 15.266ZM12.3696 13.3851L14.8004 15.7146L15.362 16.2762L5.71411 21.6361C5.02468 22.0191 4.26996 22.0374 3.62199 21.7922L4.19957 21.2146L12.3696 13.3851ZM12.3696 10.6149L14.8004 8.28535L15.362 7.72378L5.71411 2.36386C5.02469 1.98085 4.26997 1.96256 3.622 2.20776L4.19957 2.78533L12.3696 10.6149ZM2.1841 3.59829L2.79289 4.20708L2.80809 4.22196L10.9243 12L2.80809 19.778L2.79289 19.7929L2.1841 20.4017C2.06606 20.1128 2 19.7931 2 19.4507V4.54925C2 4.20688 2.06606 3.88713 2.1841 3.59829Z" fill="white" />
                       </svg>
                       <span className="text-base font-semibold">Playstore</span>
 
@@ -571,9 +640,11 @@ export default function Home() {
             <div>
             </div>
             <div className="relative flex justify-center md:justify-end">
-              <img
+              <Image
                 src="/assests/liar-phone.svg"
-                alt="Featured analysis preview"
+                alt="Fibber live analysis screen"
+                width={320}
+                height={640}
                 className="w-72 md:w-80 object-contain"
               />
             </div>
